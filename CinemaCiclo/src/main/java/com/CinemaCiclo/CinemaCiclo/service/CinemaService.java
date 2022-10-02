@@ -51,9 +51,6 @@ public class CinemaService {
                 if(c.getCapacity()!=null){
                     i.get().setCapacity(c.getCapacity());
                 }
-                if(c.getCategory()!=null){
-                    i.get().setCategory(c.getCategory());
-                }
                 if (c.getDescription()!=null){
                     i.get().setDescription(c.getDescription());
                 }

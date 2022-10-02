@@ -48,11 +48,13 @@ public class CinemaController {
     }
     
     @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
     public Cinema update (@RequestBody Cinema c){
         return cinemaService.update(c);
     }
     
     @DeleteMapping("/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete (@PathVariable ("id") int id){
         return cinemaService.deleteCinema(id);
     }
