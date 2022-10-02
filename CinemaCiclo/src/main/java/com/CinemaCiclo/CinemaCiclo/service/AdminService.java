@@ -46,6 +46,12 @@ public class AdminService {
                 if (a.getName() != null) {
                     d.get().setName(a.getName());
                 }
+                if (a.getEmail()!=null){
+                    d.get().setEmail(a.getEmail());
+                }
+                if (a.getPassword()!=null){
+                    d.get().setPassword(a.getPassword());
+                }
                 return adminRepository.save(d.get());
             }
         }

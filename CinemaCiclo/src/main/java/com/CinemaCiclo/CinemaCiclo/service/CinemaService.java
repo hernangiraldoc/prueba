@@ -45,6 +45,18 @@ public class CinemaService {
                 if(c.getName()!=null){
                     i.get().setName(c.getName());
                 }
+                if(c.getOwner()!=null){
+                    i.get().setOwner(c.getOwner());
+                }
+                if(c.getCapacity()!=null){
+                    i.get().setCapacity(c.getCapacity());
+                }
+                if(c.getCategory()!=null){
+                    i.get().setCategory(c.getCategory());
+                }
+                if (c.getDescription()!=null){
+                    i.get().setDescription(c.getDescription());
+                }
                 return cinemaRepository.save(i.get());
             }
         } return c;
