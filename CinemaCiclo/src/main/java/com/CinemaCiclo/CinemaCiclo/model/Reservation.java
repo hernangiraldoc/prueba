@@ -6,14 +6,19 @@ package com.CinemaCiclo.CinemaCiclo.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import static org.hibernate.engine.internal.Cascade.cascade;
+        
 
 @Entity
-@Table(name="reservas")
+@Table(name="Reserves")
 public class Reservation implements Serializable{
     
     @Id
@@ -23,6 +28,11 @@ public class Reservation implements Serializable{
     private Date startDate;
     private Date devolutionDate;
 
+    
+    @OneToOne
+    @JoinColumn(name = "score")
+    private Score score;
+    
     public Reservation() {
     }
 
@@ -31,6 +41,14 @@ public class Reservation implements Serializable{
         this.idReservation = idReservation;
         this.startDate = startDate;
         this.devolutionDate = devolutionDate;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
     }
     
     public Integer getIdReservation() {

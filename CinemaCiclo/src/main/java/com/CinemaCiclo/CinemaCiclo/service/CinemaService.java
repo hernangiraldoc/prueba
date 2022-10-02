@@ -38,4 +38,25 @@ public class CinemaService {
         }
     }
     
-}
+    public Cinema update (Cinema c){
+        if (c.getId()!=null){
+            Optional<Cinema> i=cinemaRepository.getCinema(c.getId());
+            if (i.isEmpty()){
+                if(c.getName()!=null){
+                    i.get().setName(c.getName());
+                }
+                return cinemaRepository.save(i.get());
+            }
+        } return c;
+    }
+    
+    public boolean deleteCinema (int id){
+        Optional<Cinema> c= getCinema(id);
+        if(!c.isEmpty()){
+            cinemaRepository.delete(c.get());
+            return true;
+        }else{
+            return false;
+        }
+        }
+    }

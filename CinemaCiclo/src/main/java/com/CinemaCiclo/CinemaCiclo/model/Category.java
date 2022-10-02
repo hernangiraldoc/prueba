@@ -4,16 +4,20 @@
  */
 package com.CinemaCiclo.CinemaCiclo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "Categories")
 
 public class Category implements Serializable{
     @Id
@@ -24,6 +28,10 @@ public class Category implements Serializable{
     private String name;
     @Column(name = "description",length = 250,nullable = false)
     private String description;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cinemaCategory")
+    @JsonIgnoreProperties
+    private List<Cinema> categories;
 
     public Category() {
     }
@@ -32,6 +40,14 @@ public class Category implements Serializable{
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public List<Cinema> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Cinema> categories) {
+        this.categories = categories;
     }
 
     public Integer getId() {
