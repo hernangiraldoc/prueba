@@ -27,4 +27,8 @@ public class CinemaRepository {
     public Cinema save(Cinema c){
         return cinemaCrudRepository.save(c);
     }
+    
+    public void delete(Cinema c){
+        cinemaCrudRepository.delete(c);
+    }
 }

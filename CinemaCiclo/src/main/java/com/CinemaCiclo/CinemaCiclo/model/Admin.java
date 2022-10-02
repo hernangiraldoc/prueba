@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Admin")
+@Table(name = "Admins")
 public class Admin implements Serializable{
     
     @Id

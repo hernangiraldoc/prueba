@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cinemas")
+@Table(name="Cinemas")
 
 public class Cinema implements Serializable{
     
@@ -37,8 +37,14 @@ public class Cinema implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("cinemas")
+    
+    @JsonIgnoreProperties({"cinemas","categories"})
     private Client client;
+   
+    
+    @ManyToOne
+    @JoinColumn(name="categoryId")
+    private Category cinemaCategory;
     
     
     public Cinema() {
@@ -60,6 +66,14 @@ public class Cinema implements Serializable{
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Category getCinemaCategory() {
+        return cinemaCategory;
+    }
+
+    public void setCinemaCategory(Category cinemaCategory) {
+        this.cinemaCategory = cinemaCategory;
     }
 
     public String getName() {

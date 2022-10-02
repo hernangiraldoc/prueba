@@ -38,4 +38,27 @@ public class ClientService {
 
         }
     }
-}
+    
+    public Client update (Client c){
+        if(c.getIdClient()!=null){
+            Optional<Client> l= clientRepository.getClient(c.getIdClient());
+            if(l.isEmpty()){
+                if(c.getName()!=null){
+                    l.get().setName(c.getName());
+                }
+                return clientRepository.save(l.get());
+            }
+        }return c;
+    }
+    
+    public boolean deleteClient (int id){
+        Optional<Client> c= getClient(id);
+        if(!c.isEmpty()){
+            clientRepository.delete(c.get());
+            return true;
+        }else{
+            return false;
+        }
+        }
+    }
+
