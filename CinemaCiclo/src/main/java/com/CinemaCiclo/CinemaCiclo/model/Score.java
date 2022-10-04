@@ -27,10 +27,6 @@ public class Score implements Serializable{
     @Column(name="puntaje",scale = 5,nullable = false)
     private Integer score;
 
-    
-    @OneToOne (cascade = {CascadeType.PERSIST},mappedBy="score")
-    @JoinColumn(name="scoreId")
-    private Reservation scoreReservation;
             
     public Score() {
     }
@@ -40,14 +36,7 @@ public class Score implements Serializable{
         this.score = score;
     }
 
-    public Reservation getScoreReservation() {
-        return scoreReservation;
-    }
-
-    public void setScoreReservation(Reservation scoreReservation) {
-        this.scoreReservation = scoreReservation;
-    }
-
+   
     public Integer getIdScore() {
         return idScore;
     }
