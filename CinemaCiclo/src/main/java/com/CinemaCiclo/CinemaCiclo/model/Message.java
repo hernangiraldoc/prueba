@@ -5,11 +5,14 @@
 package com.CinemaCiclo.CinemaCiclo.model;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +21,8 @@ import javax.persistence.Table;
 public class Message implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    
     
     private Integer idMessage;
     @Column(name = "message",length = 250,nullable = false)
@@ -31,6 +36,19 @@ public class Message implements Serializable{
         this.messageText = messageText;
     }
 
+    @ManyToOne 
+    @JoinColumn(name="cinemas")
+    private Cinema messages;
+
+    public Cinema getMessages() {
+        return messages;
+    }
+
+    public void setMessages(Cinema messages) {
+        this.messages = messages;
+    }
+    
+    
     public Integer getIdMessage() {
         return idMessage;
     }

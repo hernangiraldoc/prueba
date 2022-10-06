@@ -6,43 +6,53 @@ package com.CinemaCiclo.CinemaCiclo.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import static org.hibernate.engine.internal.Cascade.cascade;
-        
 
 @Entity
-@Table(name="Reserves")
-public class Reservation implements Serializable{
-    
+@Table(name = "Reserves")
+public class Reservation implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
+    @Column(name="score",nullable = true)
+    private Integer score;
 
+    @OneToOne
+    @JoinColumn(name = "cinema")
+    private Cinema cinema;
     
+    
+    
+    /*
     @OneToOne
     @JoinColumn(name = "score")
     private Score score;
+*/
     
     public Reservation() {
     }
 
-    
     public Reservation(Integer idReservation, Date startDate, Date devolutionDate) {
         this.idReservation = idReservation;
         this.startDate = startDate;
         this.devolutionDate = devolutionDate;
     }
-
+/*
     public Score getScore() {
         return score;
     }
@@ -50,7 +60,7 @@ public class Reservation implements Serializable{
     public void setScore(Score score) {
         this.score = score;
     }
-    
+*/
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -75,7 +85,20 @@ public class Reservation implements Serializable{
         this.devolutionDate = devolutionDate;
     }
 
-    
-    
-    
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+
 }
