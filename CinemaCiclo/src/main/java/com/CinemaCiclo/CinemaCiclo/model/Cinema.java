@@ -28,19 +28,19 @@ public class Cinema implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
-    @Column(name = "nombre", length = 45, nullable = false)
+    @Column(name = "name", length = 45, nullable = false)
     private String name;
-    @Column(name = "propietario", length = 45, nullable = false)
+    @Column(name = "owner", length = 45, nullable = false)
     private String owner;
     private Integer capacity;
-    @Column(name = "descripcion", length = 250, nullable = false)
+    @Column(name = "description", length = 250, nullable = false)
     private String description;
 
     //Interacciones:
     
 
     @ManyToOne
-    @JoinColumn(name = "name")
+    @JoinColumn(name = "nameCategory")
     private Category category;
     
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "messageText")

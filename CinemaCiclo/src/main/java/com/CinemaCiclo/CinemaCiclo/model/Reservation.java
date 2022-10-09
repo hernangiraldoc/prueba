@@ -39,7 +39,7 @@ public class Reservation implements Serializable {
     
     @OneToOne
     @JoinColumn (name = "client")
-    private Client Client;
+    private Client client;
 
 
     
@@ -102,6 +102,14 @@ public class Reservation implements Serializable {
 
     public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Cinema getCinema() {
