@@ -64,8 +64,8 @@ public class CinemaService {
         if(!c.isEmpty()){
             cinemaRepository.delete(c.get());
             return true;
-        }else{
+        }else
             return false;
         }
         }
-    }
+    

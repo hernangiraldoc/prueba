@@ -65,9 +65,9 @@ public class ClientService {
         if(!c.isEmpty()){
             clientRepository.delete(c.get());
             return true;
-        }else{
+        }
             return false;
         }
         }
-    }
+    
 

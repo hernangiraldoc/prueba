@@ -4,6 +4,7 @@
  */
 package com.CinemaCiclo.CinemaCiclo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -35,10 +36,12 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "name")
+    @JsonIgnoreProperties("reservations")
     private Cinema cinema;
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn (name = "client")
+    @JsonIgnoreProperties ("reservations")
     private Client client;
 
 
@@ -46,38 +49,19 @@ public class Reservation implements Serializable {
     @OneToOne
     @JoinColumn(name = "score")
     private Score score;
-     
+
     public Reservation() {
     }
 
-    public Reservation(Integer idReservation, Date startDate, Date devolutionDate) {
+    public Reservation(Integer idReservation, Date startDate, Date devolutionDate, String status, Date creationDate, Cinema cinema, Client client, Score score) {
         this.idReservation = idReservation;
         this.startDate = startDate;
         this.devolutionDate = devolutionDate;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    
-    public Score getScore() {
-    return score;
-    }
-    public void setScore(Score score) {
-    this.score = score;
-    }
-     
-    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+        this.cinema = cinema;
+        this.client = client;
+        this.score = score;
     }
 
     public Integer getIdReservation() {
@@ -104,12 +88,20 @@ public class Reservation implements Serializable {
         this.devolutionDate = devolutionDate;
     }
 
-    public Client getClient() {
-        return client;
+    public String getStatus() {
+        return status;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public Cinema getCinema() {
@@ -120,4 +112,20 @@ public class Reservation implements Serializable {
         this.cinema = cinema;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
+     
 }

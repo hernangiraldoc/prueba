@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -36,9 +37,11 @@ public class Client implements Serializable{
     //Interacciones:
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "messageText")
+    @JsonIgnoreProperties("client")
     private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "idReservation")
+    @JsonIgnoreProperties("client")
     private List<Reservation> reservations;
     
     public Client() {

@@ -53,8 +53,8 @@ public class ScoreService {
         if(!s.isEmpty()){
             scoreRepository.delete(s.get());
             return true;
-        }else{
+        }
             return false;
         }
     }
-}
+
