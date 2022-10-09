@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Messages")
+@Table(name = "Message")
 
 public class Message implements Serializable{
     @Id

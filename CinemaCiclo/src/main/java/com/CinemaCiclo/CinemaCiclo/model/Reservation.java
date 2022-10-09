@@ -21,7 +21,7 @@ import javax.persistence.Table;
 import static org.hibernate.engine.internal.Cascade.cascade;
 
 @Entity
-@Table(name = "Reserves")
+@Table(name = "Reservation")
 public class Reservation implements Serializable {
 
     @Id

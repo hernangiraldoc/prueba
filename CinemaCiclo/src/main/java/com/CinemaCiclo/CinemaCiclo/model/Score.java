@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "Scores")
+@Table (name = "Score")
 
 public class Score implements Serializable{
     
