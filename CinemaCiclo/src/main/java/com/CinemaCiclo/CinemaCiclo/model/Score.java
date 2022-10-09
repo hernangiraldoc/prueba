@@ -24,7 +24,7 @@ public class Score implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     
     private Integer idScore;
-    @Column(name="puntaje",scale = 5,nullable = false)
+    @Column(name="score",scale = 5,nullable = false)
     private Integer score;
 
             

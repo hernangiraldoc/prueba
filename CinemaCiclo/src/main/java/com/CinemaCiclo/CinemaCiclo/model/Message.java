@@ -38,17 +38,21 @@ public class Message implements Serializable{
 
     @ManyToOne 
     @JoinColumn(name="cinemas")
-    private Cinema messages;
+    private Cinema cinema;
+    
+    @ManyToOne
+    @JoinColumn(name = "clients")
+    private Client client;
 
-    public Cinema getMessages() {
-        return messages;
+    public Cinema getCinema() {
+        return cinema;
     }
 
-    public void setMessages(Cinema messages) {
-        this.messages = messages;
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
     }
-    
-    
+
+       
     public Integer getIdMessage() {
         return idMessage;
     }
