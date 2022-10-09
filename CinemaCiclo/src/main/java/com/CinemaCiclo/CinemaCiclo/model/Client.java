@@ -39,7 +39,7 @@ public class Client implements Serializable{
     private List<Message> messages;
     
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "idReservation")
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
     
     public Client() {
     }
@@ -53,13 +53,15 @@ public class Client implements Serializable{
         
     }
 
-    public List<Reservation> getReservation() {
-        return reservation;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setReservation(List<Reservation> reservation) {
-        this.reservation = reservation;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
+
+    
 
     public Integer getIdClient() {
         return idClient;

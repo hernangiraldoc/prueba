@@ -25,6 +25,14 @@ public class Message implements Serializable{
     
     
     private Integer idMessage;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
     @Column(name = "message",length = 250,nullable = false)
     private String messageText;
 
