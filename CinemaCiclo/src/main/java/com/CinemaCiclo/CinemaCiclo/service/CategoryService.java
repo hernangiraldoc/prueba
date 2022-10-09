@@ -56,8 +56,8 @@ public class CategoryService {
         if(!c.isEmpty()){
             categoryRepository.delete(c.get());
             return true;
-        }else{
+        }
             return false;
         }
     }
-}
+

@@ -4,6 +4,7 @@
  */
 package com.CinemaCiclo.CinemaCiclo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,42 +26,29 @@ public class Message implements Serializable{
     
     
     private Integer idMessage;
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-    @Column(name = "message",length = 250,nullable = false)
+    @Column(name = "messageText",length = 250,nullable = false)
     private String messageText;
-
-    public Message() {
-    }
-
-    public Message(Integer idMessage, String messageText) {
-        this.idMessage = idMessage;
-        this.messageText = messageText;
-    }
 
     @ManyToOne 
     @JoinColumn(name="cinemas")
+    @JsonIgnoreProperties("messages")
     private Cinema cinema;
     
     @ManyToOne
     @JoinColumn(name = "clients")
+    @JsonIgnoreProperties("messages")
     private Client client;
 
-    public Cinema getCinema() {
-        return cinema;
+    public Message() {
     }
 
-    public void setCinema(Cinema cinema) {
+    public Message(Integer idMessage, String messageText, Cinema cinema, Client client) {
+        this.idMessage = idMessage;
+        this.messageText = messageText;
         this.cinema = cinema;
+        this.client = client;
     }
 
-       
     public Integer getIdMessage() {
         return idMessage;
     }
@@ -76,5 +64,27 @@ public class Message implements Serializable{
     public void setMessageText(String messageText) {
         this.messageText = messageText;
     }
+
+    public Cinema getCinema() {
+        return cinema;
+    }
+
+    public void setCinema(Cinema cinema) {
+        this.cinema = cinema;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
     
-}
+    }
+
+    
+
+      
+        
+    

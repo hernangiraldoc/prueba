@@ -63,8 +63,7 @@ public class AdminService {
         if (!a.isEmpty()) {
             adminRepository.delete(a.get());
             return true;
-        }else{
+        }
         return false;
         }
     }
-}

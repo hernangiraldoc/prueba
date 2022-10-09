@@ -66,8 +66,8 @@ public class ReservationService {
         if (!r.isEmpty()) {
             reservationRepository.delete(r.get());
             return true;
-        } else {
+        }
             return false;
         }
     }
-}
+

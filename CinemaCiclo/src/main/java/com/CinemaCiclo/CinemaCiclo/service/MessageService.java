@@ -52,9 +52,9 @@ public class MessageService {
         if(!m.isEmpty()){
             messageRepository.delete(m.get());
             return true;
-        }else{
+        }
             return false;
         }
         }
-    }
+    
 

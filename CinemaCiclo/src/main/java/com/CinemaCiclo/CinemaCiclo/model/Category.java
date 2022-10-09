@@ -29,10 +29,12 @@ public class Category implements Serializable{
     @Column(name = "description",length = 250,nullable = false)
     private String description;
     
+    
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
-    @JsonIgnoreProperties
+    @JsonIgnoreProperties("category")
     private List<Cinema> cinemas;
 
+    
     public Category() {
     }
 
@@ -42,6 +44,7 @@ public class Category implements Serializable{
         this.description = description;
     }
 
+    
     public List<Cinema> getCinemas() {
         return cinemas;
     }
