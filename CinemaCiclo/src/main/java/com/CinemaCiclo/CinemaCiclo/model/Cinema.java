@@ -16,45 +16,50 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Cinemas")
+@Table(name = "Cinemas")
 
-public class Cinema implements Serializable{
-    
+public class Cinema implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    
+
     private Integer id;
-    @Column(name = "nombre",length = 45,nullable = false)
+    @Column(name = "nombre", length = 45, nullable = false)
     private String name;
-    @Column(name = "propietario",length = 45,nullable = false)
+    @Column(name = "propietario", length = 45, nullable = false)
     private String owner;
     private Integer capacity;
-    @Column(name = "descripcion",length = 250,nullable = false)
+    @Column(name = "descripcion", length = 250, nullable = false)
     private String description;
-    private Integer category;
 
     //Interacciones:
     
-    @OneToMany (cascade = {CascadeType.PERSIST}, mappedBy="messages")
+
+    @ManyToOne
+    @JoinColumn(name = "name")
+    private Category category;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "messageText")
     private List<Message> messages;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "idReservation")
+    private List<Reservation> reservation;
+    
+      
 
     
-   
-    
-    @ManyToOne
-    @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"cinemas","categories"})
-    private Client client;
-   
-    
-    @ManyToOne
-    @JoinColumn(name="categoryId")
-    private Category cinemaCategory;
-    
-    
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
     public Cinema() {
     }
 
@@ -64,8 +69,7 @@ public class Cinema implements Serializable{
         this.owner = owner;
         this.capacity = capacity;
         this.description = description;
-        this.category = category;
-        
+
     }
 
     public List<Message> getMessages() {
@@ -76,20 +80,20 @@ public class Cinema implements Serializable{
         this.messages = messages;
     }
 
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+    }
+
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Category getCinemaCategory() {
-        return cinemaCategory;
-    }
-
-    public void setCinemaCategory(Category cinemaCategory) {
-        this.cinemaCategory = cinemaCategory;
     }
 
     public String getName() {
@@ -124,21 +128,4 @@ public class Cinema implements Serializable{
         this.description = description;
     }
 
-    public Integer getCategory() {
-        return category;
-    }
-
-    public void setCategory(Integer category) {
-        this.category = category;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
 }
-
-   

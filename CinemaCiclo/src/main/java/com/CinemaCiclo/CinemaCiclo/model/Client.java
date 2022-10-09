@@ -35,9 +35,11 @@ public class Client implements Serializable{
     
     //Interacciones:
     
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("client")
-    private List<Cinema> cinemas;
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "messageText")
+    private List<Message> messages;
+    
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "idReservation")
+    private List<Reservation> reservation;
     
     public Client() {
     }
@@ -49,6 +51,14 @@ public class Client implements Serializable{
         this.name = name;
         this.age = age;
         
+    }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
 
     public Integer getIdClient() {
@@ -91,12 +101,14 @@ public class Client implements Serializable{
         this.age = age;
     }
 
-    public List<Cinema> getCinemas() {
-        return cinemas;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setCinemas(List<Cinema> cinemas) {
-        this.cinemas = cinemas;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
+
+  
 }
    

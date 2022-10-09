@@ -15,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import static org.hibernate.engine.internal.Cascade.cascade;
@@ -29,21 +30,23 @@ public class Reservation implements Serializable {
     private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
-    @Column(name="score",nullable = true)
-    private Integer score;
+    private String status;
+    private Date creationDate;
 
-    @OneToOne
-    @JoinColumn(name = "cinema")
+    @ManyToOne
+    @JoinColumn(name = "name")
     private Cinema cinema;
     
+    @OneToOne
+    @JoinColumn (name = "client")
+    private Client Client;
+
+
     
-    
-    /*
     @OneToOne
     @JoinColumn(name = "score")
     private Score score;
-*/
-    
+     
     public Reservation() {
     }
 
@@ -52,15 +55,31 @@ public class Reservation implements Serializable {
         this.startDate = startDate;
         this.devolutionDate = devolutionDate;
     }
-/*
-    public Score getScore() {
-        return score;
+
+    public String getStatus() {
+        return status;
     }
 
-    public void setScore(Score score) {
-        this.score = score;
+    public void setStatus(String status) {
+        this.status = status;
     }
-*/
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    
+    public Score getScore() {
+    return score;
+    }
+    public void setScore(Score score) {
+    this.score = score;
+    }
+     
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
+    }
+
     public Integer getIdReservation() {
         return idReservation;
     }
@@ -83,14 +102,6 @@ public class Reservation implements Serializable {
 
     public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
     }
 
     public Cinema getCinema() {
