@@ -47,7 +47,7 @@ public class CinemaController {
         return cinemaService.save(c);
     }
     
-    @PutMapping("/all")
+    @PutMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Cinema update (@RequestBody Cinema c){
         return cinemaService.update(c);

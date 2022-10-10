@@ -45,7 +45,7 @@ public class ScoreController {
         return scoreService.save(s);
     }
     
-    @PutMapping("/all")
+    @PutMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Score update (@RequestBody Score s){
         return scoreService.update(s);
