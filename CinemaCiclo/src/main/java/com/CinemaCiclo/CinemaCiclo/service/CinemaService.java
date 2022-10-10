@@ -67,5 +67,5 @@ public class CinemaService {
         }else
             return false;
         }
-        }
+    }
     
