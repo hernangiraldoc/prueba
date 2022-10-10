@@ -45,7 +45,7 @@ public class ReservationController {
         return reservationService.save(r);
     }
     
-    @PutMapping("/all")
+    @PutMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation update (@RequestBody Reservation r){
         return reservationService.update(r);
