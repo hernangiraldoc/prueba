@@ -7,7 +7,6 @@ package com.CinemaCiclo.CinemaCiclo.repository.crud;
 import com.CinemaCiclo.CinemaCiclo.model.Score;
 import org.springframework.data.repository.CrudRepository;
 
+public interface ScoreCrudRepository extends CrudRepository<Score, Integer> {
 
-public interface ScoreCrudRepository extends CrudRepository<Score,Integer>{
-    
 }

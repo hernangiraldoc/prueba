@@ -52,14 +52,9 @@ public class ReservationService {
                     return reservationRepository.save(e.get());
                 }
             }
-            }
-            return r;
         }
-    
-    
-    
-
-          
+        return r;
+    }
 
     public boolean deleteReservation(int id) {
         Optional<Reservation> r = getReservation(id);
@@ -67,7 +62,6 @@ public class ReservationService {
             reservationRepository.delete(r.get());
             return true;
         }
-            return false;
-        }
+        return false;
     }
-
+}

@@ -13,48 +13,50 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageService {
-    
+
     @Autowired
     private MessageRepository messageRepository;
-    public List<Message> getAll(){
+
+    public List<Message> getAll() {
         return messageRepository.getAll();
     }
-    public Optional<Message> getMessage (int id){
+
+    public Optional<Message> getMessage(int id) {
         return messageRepository.getMessage(id);
     }
-    public Message save (Message m){
-        if(m.getIdMessage()==null){
+
+    public Message save(Message m) {
+        if (m.getIdMessage() == null) {
             return messageRepository.save(m);
-        }else{
-            Optional<Message> maux=messageRepository.getMessage(m.getIdMessage());
-            if (maux.isEmpty()){
+        } else {
+            Optional<Message> maux = messageRepository.getMessage(m.getIdMessage());
+            if (maux.isEmpty()) {
                 return messageRepository.save(m);
-            }else{
+            } else {
                 return (m);
             }
         }
     }
-    
-    public Message update (Message m){
-        if(m.getIdMessage()!=null){
-            Optional<Message> e= messageRepository.getMessage(m.getIdMessage());
-            if(!e.isEmpty()){
-                if(m.getMessageText()!=null){
+
+    public Message update(Message m) {
+        if (m.getIdMessage() != null) {
+            Optional<Message> e = messageRepository.getMessage(m.getIdMessage());
+            if (!e.isEmpty()) {
+                if (m.getMessageText() != null) {
                     e.get().setMessageText(m.getMessageText());
-            }
+                }
                 return messageRepository.save(e.get());
+            }
         }
-    }return m;
-}
-    
-    public boolean deleteMessage(int id){
-        Optional<Message> m= getMessage(id);
-        if(!m.isEmpty()){
+        return m;
+    }
+
+    public boolean deleteMessage(int id) {
+        Optional<Message> m = getMessage(id);
+        if (!m.isEmpty()) {
             messageRepository.delete(m.get());
             return true;
         }
-            return false;
-        }
-        }
-    
-
+        return false;
+    }
+}

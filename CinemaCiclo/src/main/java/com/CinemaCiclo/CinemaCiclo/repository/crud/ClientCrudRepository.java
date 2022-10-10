@@ -7,7 +7,6 @@ package com.CinemaCiclo.CinemaCiclo.repository.crud;
 import com.CinemaCiclo.CinemaCiclo.model.Client;
 import org.springframework.data.repository.CrudRepository;
 
+public interface ClientCrudRepository extends CrudRepository<Client, Integer> {
 
-public interface ClientCrudRepository extends CrudRepository<Client,Integer>{
-    
 }

@@ -13,48 +13,50 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ScoreService {
-    
+
     @Autowired
     private ScoreRepository scoreRepository;
-    
-    public List<Score> getAll(){
-        return (List<Score>)scoreRepository.getAll();
+
+    public List<Score> getAll() {
+        return (List<Score>) scoreRepository.getAll();
     }
-    public Optional<Score> getScore (int id){
+
+    public Optional<Score> getScore(int id) {
         return scoreRepository.getScore(id);
     }
-    public Score save (Score s){
-        if (s.getIdScore()==null){
+
+    public Score save(Score s) {
+        if (s.getIdScore() == null) {
             return scoreRepository.save(s);
-        }else{
-            Optional<Score> saux=scoreRepository.getScore(s.getIdScore());
-            if (saux.isEmpty()){
+        } else {
+            Optional<Score> saux = scoreRepository.getScore(s.getIdScore());
+            if (saux.isEmpty()) {
                 return scoreRepository.save(s);
-            }else{
+            } else {
                 return (s);
             }
         }
     }
-    
-    public Score update (Score s){
-        if(s.getIdScore()!=null){
-            Optional<Score> c= scoreRepository.getScore(s.getIdScore());
-            if(!c.isEmpty()){
-                if(s.getScore()!=null){
+
+    public Score update(Score s) {
+        if (s.getIdScore() != null) {
+            Optional<Score> c = scoreRepository.getScore(s.getIdScore());
+            if (!c.isEmpty()) {
+                if (s.getScore() != null) {
                     c.get().setScore(s.getScore());
                 }
                 return scoreRepository.save(c.get());
             }
-        }return s;
+        }
+        return s;
     }
-    
-    public boolean deleteScore (int id){
-        Optional<Score> s= getScore(id);
-        if(!s.isEmpty()){
+
+    public boolean deleteScore(int id) {
+        Optional<Score> s = getScore(id);
+        if (!s.isEmpty()) {
             scoreRepository.delete(s.get());
             return true;
         }
-            return false;
-        }
+        return false;
     }
-
+}
