@@ -3,15 +3,18 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-       <header>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+
+</head>
+
+<body>
+    <header>
             <nav class="navbar navbar-dark bg-dark">
                 <!-- Navbar content -->
             </nav>
@@ -38,6 +41,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <a class="nav-link" href="score.html">Calificanos</a>
                                 <a ></a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultas.html">Consultas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="edicion.html">Edicion</a>
+                            </li>
                         </ul>
                         <span class="navbar-text">
                             CinemanTic reservas para mi
@@ -48,24 +57,52 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </nav>
         </header>
     
-        <h1> Elija el numero de su reserva</h1>
-        
-        
-        <br/>
-         <div class="col-md-4">
-    <label for="inputReservation" class="form-label"># Reserva</label>
-    <select id="inputReservation" class="form-select">
-      <option selected>Elije...</option>
-      <option></option>
-      
-      </select>
-  </div>
-        <br/> 
-        <br/>
-        
-        <h2> Estrellas: </h2>
-        
-        <h2>Mensaje: </h2>
-    
-    </body>
+    <h1>Cinema</h1>
+    <div id="resultado"></div>
+    <button onclick="llamarInformacion()">Consultar</button>
+
+    <div>
+        <input type="number"id="id"placeholder="id">
+        <input type="text"id="owner"placeholder="owner">
+        <input type="number"id="capacity"placeholder="capacity">
+        <input type="number"id="category_id"placeholder="category_id">
+        <input type="text"id="name"placeholder="name">
+    </div>
+
+    <button onclick="guardarInformacion()">Guardar!</button>
+    <button onclick="editarInformacion()">Actualizar</button>
+<br/>
+<br/>
+<br/>
+    <h1> Clientes Cinema </h1>
+    <div id="resultadoClientes"></div>
+    <button onclick="traerInformacionClientes()"> Consultar </button>
+
+    <div>
+        <input type="number" id="idcliente" placeholder="id">
+        <input type="text" id="namecliente" placeholder="name">
+        <input type="text" id="email" placeholder="email">
+        <input type="number" id="age" placeholder="age">
+    </div>
+
+    <button onclick="guardarInformacionClientes()">Guardar</button>
+    <button onclick="editarInformacionClientes()">Actualizar</button>
+
+    <br/>
+    <br/>
+    <br/>
+    <h1> Mensajes Cinema </h1>
+    <div id="resultadoMensajes"></div>
+    <button onclick="traerInformacionMensajes()"> Consultar </button>
+
+    <div>
+        <input type="number" id="idmensaje" placeholder="id">
+        <input type="text" id="messagetext" placeholder="messagetext">
+    </div>
+
+    <button onclick="guardarInformacionMensajes()">Guardar</button>
+    <button onclick="editarInformacionMensajes()">Actualizar</button>
+</body>
+
 </html>
+
