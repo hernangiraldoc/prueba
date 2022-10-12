@@ -45,6 +45,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                             <li class="nav-item">
                                 <a class="nav-link" href="cinemas.html">Cinemas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="score.html">Calificanos</a>
+                                <a ></a>
+                            </li>
                         </ul>
                         <span class="navbar-text">
                             CinemanTic reservas para mi
@@ -54,8 +58,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             </nav>
         </header>
-        <div class="p-3 mb-2 bg-secondary text-white"></div>
-        <img src="cinemasportada.jpg"class="rounded-0" alt="">
+        <div class="p-8 mb-3 bg-secondary text-white">
+            <img src="cinemasportada.jpg">
         
         <h2> Ingrese </h2>
         <div class="mb-2 row">
@@ -70,12 +74,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <input type="password" class="form-control" id="inputPassword">
             </div>
         </div>
+        <center><div class="col-sm-2">
+            <label for="inputState" class="form-label">Tipo de usuario</label>
+                <select id="inputState" class="form-select">
+                <option selected>Elije...</option>
+      <option>Usuario</option>
+      <option>Administrador</option>
+      </select>
+            </div></center>
+        <br/>
+        
     <center><a href="index.html"><img src="continuar.jpg" width="10%" height="10%"></a></center>
         <br/>
-        <p> Si no eres un usuario registrado, ¿Que esperas? Resgitrate ahora!</p>
+        <center><p> Si no eres un usuario registrado, ¿Que esperas? Resgitrate ahora!</p>
         
         <a href="registro.html"><img src="botonregistro.jpg" width="10%" height="10%"></a>
-
+        </center>
+        
+  
         <div><br/><br/><br/><br/>Bienvenido</div>
         <div class="container unauthenticated">
             Autentiquese con GitHub: <a href="/oauth2/authorization/github">click here</a>
@@ -85,6 +101,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class="container authenticated" style="display:none">
             Logged in as: <span id="user"></span>
         </div>
-
+</div>
     </body>
 </html>
