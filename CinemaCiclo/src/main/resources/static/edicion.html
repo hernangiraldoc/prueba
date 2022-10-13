@@ -10,6 +10,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/misFunciones.js"></script>
+    <script src="cinema.js"></script>
+    <script src="client.js"></script>
 
 </head>
 
@@ -56,11 +58,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             </nav>
         </header>
+    <br/>
     
     <h1>Cinema</h1>
+    <br/>
     <div id="resultado"></div>
-    <button onclick="llamarInformacion()">Consultar</button>
-
+    <!--<form action="api/Cinema/all">-->
+        <button onclick="cinema.consultacinema()"type="button">Consultar</button>
+        
+    <!--</form>-->
     <div>
         <input type="number"id="id"placeholder="id">
         <input type="text"id="owner"placeholder="owner">
@@ -68,40 +74,61 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <input type="number"id="category_id"placeholder="category_id">
         <input type="text"id="name"placeholder="name">
     </div>
-
+    <br/>
+    <div>
+    <form action="*/api/Cinema/save">
     <button onclick="guardarInformacion()">Guardar!</button>
+    </form>
+    <form action="*/api/Cinema/update">
     <button onclick="editarInformacion()">Actualizar</button>
+    </form>
+</div>
 <br/>
 <br/>
 <br/>
+<!--<form action="*/api/Client/all">-->
     <h1> Clientes Cinema </h1>
+    <br/>
     <div id="resultadoClientes"></div>
-    <button onclick="traerInformacionClientes()"> Consultar </button>
-
+    <button onclick="leerClientes()"> Consultar </button>
+<!--</form>-->
     <div>
         <input type="number" id="idcliente" placeholder="id">
         <input type="text" id="namecliente" placeholder="name">
         <input type="text" id="email" placeholder="email">
         <input type="number" id="age" placeholder="age">
     </div>
-
+<br/>
+<div>
+    <!--<form action="*/api/Client/save">-->
     <button onclick="guardarInformacionClientes()">Guardar</button>
+    <!--</form>-->
+    <form action="*/api/Client/update">
     <button onclick="editarInformacionClientes()">Actualizar</button>
-
+    </form>
+</div>
+</form>
     <br/>
     <br/>
     <br/>
+    
     <h1> Mensajes Cinema </h1>
+    <br/>
     <div id="resultadoMensajes"></div>
+    <form action="api/Message/all">
     <button onclick="traerInformacionMensajes()"> Consultar </button>
-
+    </form>
     <div>
         <input type="number" id="idmensaje" placeholder="id">
         <input type="text" id="messagetext" placeholder="messagetext">
     </div>
-
+<br/>
+<form action="api/Message/save">
     <button onclick="guardarInformacionMensajes()">Guardar</button>
+</form>
+<form action="*/api/Message/update">
     <button onclick="editarInformacionMensajes()">Actualizar</button>
+    </form>
 </body>
 
 </html>
