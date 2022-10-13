@@ -1,0 +1,28 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+
+body{
+    
+}
+
+.contenedor{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+.titulo{
+    
+}
+
+.contenedor-cinemaphoto{
+   
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
