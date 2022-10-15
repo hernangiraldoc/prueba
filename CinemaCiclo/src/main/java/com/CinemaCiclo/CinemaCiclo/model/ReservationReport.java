@@ -4,11 +4,9 @@
  */
 package com.CinemaCiclo.CinemaCiclo.model;
 
-/**
- *
- * @author lorel
- */
-public class ReservationReport {
+
+
+public class ReservationReport{
     private int completed;
     private int cancelled;
 

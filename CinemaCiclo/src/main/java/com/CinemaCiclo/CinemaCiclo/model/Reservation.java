@@ -44,20 +44,21 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties ({"reservations","messages"})
     private Client client;
 
-
+    /*@ManyToOne
+    @JoinColumn(name = "reservationReport")
+    private ReservationReport reservationReport;
+    */
     
     @OneToOne
-    @JoinColumn(name = "score")
     private Score score;
 
     public Reservation() {
     }
 
-    public Reservation(Integer idReservation, Date startDate, Date devolutionDate, String status, Date creationDate, Cinema cinema, Client client, Score score) {
+    public Reservation(Integer idReservation, Date startDate, Date devolutionDate, Cinema cinema, Client client, ReservationReport reservationReport, Score score) {
         this.idReservation = idReservation;
         this.startDate = startDate;
         this.devolutionDate = devolutionDate;
-        this.status = status;
         this.cinema = cinema;
         this.client = client;
         this.score = score;
@@ -118,5 +119,5 @@ public class Reservation implements Serializable {
     public void setScore(Score score) {
         this.score = score;
     }
-     
+
 }
