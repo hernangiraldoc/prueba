@@ -16,11 +16,11 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests(a -> a
-    .antMatchers("/", "/error", "/webjars/**","/api/**","/h2-console").permitAll().anyRequest().authenticated()
+    .antMatchers("/","/template/*","/index.html","/admin.html","/admin/*", "/css/*", "/error", "/webjars/**","/api/**","/h2-console").permitAll().anyRequest().authenticated()
                 
         ).exceptionHandling(e -> e
                 .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-        ).oauth2Login().defaultSuccessUrl("/index.html", true);
+        ).oauth2Login().defaultSuccessUrl("/", true);
 
         http.cors().and().csrf().disable();
 
