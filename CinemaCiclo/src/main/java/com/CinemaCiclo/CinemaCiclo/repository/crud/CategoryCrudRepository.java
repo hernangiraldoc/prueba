@@ -7,7 +7,6 @@ package com.CinemaCiclo.CinemaCiclo.repository.crud;
 import com.CinemaCiclo.CinemaCiclo.model.Category;
 import org.springframework.data.repository.CrudRepository;
 
+public interface CategoryCrudRepository extends CrudRepository<Category, Integer> {
 
-public interface CategoryCrudRepository extends CrudRepository<Category,Integer>{
-    
 }

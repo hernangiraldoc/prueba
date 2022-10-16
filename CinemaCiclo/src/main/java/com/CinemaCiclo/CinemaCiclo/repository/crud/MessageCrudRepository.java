@@ -7,7 +7,6 @@ package com.CinemaCiclo.CinemaCiclo.repository.crud;
 import com.CinemaCiclo.CinemaCiclo.model.Message;
 import org.springframework.data.repository.CrudRepository;
 
+public interface MessageCrudRepository extends CrudRepository<Message, Integer> {
 
-public interface MessageCrudRepository extends CrudRepository<Message,Integer>{
-    
 }
