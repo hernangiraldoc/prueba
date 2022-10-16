@@ -1,2 +1,0 @@
-# cinema
-Creación de cinema

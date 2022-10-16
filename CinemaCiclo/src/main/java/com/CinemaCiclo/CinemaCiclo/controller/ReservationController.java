@@ -4,7 +4,10 @@
  */
 package com.CinemaCiclo.CinemaCiclo.controller;
 
+import com.CinemaCiclo.CinemaCiclo.model.ClientReport;
 import com.CinemaCiclo.CinemaCiclo.model.Reservation;
+import com.CinemaCiclo.CinemaCiclo.model.ReservationReport;
+import com.CinemaCiclo.CinemaCiclo.repository.ReservationRepository;
 import com.CinemaCiclo.CinemaCiclo.service.ReservationService;
 import java.util.List;
 import java.util.Optional;
@@ -55,5 +58,20 @@ public class ReservationController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete (@PathVariable("id")int id){
         return reservationService.deleteReservation(id);
+    }
+    
+    @GetMapping("/report-status")
+    public ReservationReport getReservationReport(){
+        return reservationService.getReservationStatusReport();
+    }
+    
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getReservationReportDates(@PathVariable("dateOne") String dateOne,@PathVariable("dateTwo")String dateTwo){
+        return reservationService.getReservationPeriod(dateOne, dateTwo);
+    }
+    
+    @GetMapping("/report-clients")
+    public List<ClientReport> getClients(){
+        return reservationService.getTopClients();
     }
 }

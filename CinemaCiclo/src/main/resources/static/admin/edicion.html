@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <meta charset="UTF-8">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFunciones.js"></script>
+    <script src="cinema.js"></script>
+    <script src="client.js"></script>
+
+</head>
+
+<body>
+    <header>
+            <nav class="navbar navbar-dark bg-dark">
+                <!-- Navbar content -->
+            </nav>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand">CinemanTic</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../admin.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="reservationadmin.html">Reservaciones</a>
+                                <a ></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="cinemasadmin.html">Cinemas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="scoreadmin.html">Calificanos</a>
+                                <a ></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="consultas.html">Consultas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="edicion.html">Edicion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../index.html">Regresar como Usuario</a>
+                            </li>
+                        </ul>
+                        <span class="navbar-text">
+                            CinemanTic reserva para mi
+                        </span>
+                    </div>
+                </div>
+
+            </nav>
+        </header>
+    <br/>
+    
+    <h1>Cinema</h1>
+    <br/>
+    <div id="resultado"></div>
+    <!--<form action="api/Cinema/all">-->
+        <button onclick="cinema.consultacinema()"type="button">Consultar</button>
+        
+    <!--</form>-->
+    <div>
+        <input type="number"id="id"placeholder="id">
+        <input type="text"id="owner"placeholder="owner">
+        <input type="number"id="capacity"placeholder="capacity">
+        <input type="number"id="category_id"placeholder="category_id">
+        <input type="text"id="name"placeholder="name">
+    </div>
+    <br/>
+    <div>
+    <form action="*/api/Cinema/save">
+    <button onclick="guardarInformacion()">Guardar!</button>
+    </form>
+    <form action="*/api/Cinema/update">
+    <button onclick="editarInformacion()">Actualizar</button>
+    </form>
+</div>
+<br/>
+<br/>
+<br/>
+<!--<form action="*/api/Client/all">-->
+    <h1> Clientes Cinema </h1>
+    <br/>
+    <div id="resultadoClientes"></div>
+    <button onclick="leerClientes()"> Consultar </button>
+<!--</form>-->
+    <div>
+        <input type="number" id="idcliente" placeholder="id">
+        <input type="text" id="namecliente" placeholder="name">
+        <input type="text" id="email" placeholder="email">
+        <input type="number" id="age" placeholder="age">
+    </div>
+<br/>
+<div>
+    <!--<form action="*/api/Client/save">-->
+    <button onclick="guardarInformacionClientes()">Guardar</button>
+    <!--</form>-->
+    <form action="*/api/Client/update">
+    <button onclick="editarInformacionClientes()">Actualizar</button>
+    </form>
+</div>
+</form>
+    <br/>
+    <br/>
+    <br/>
+    
+    <h1> Administradores Cinema </h1>
+    <br/>
+    <div id="resultadoMensajes"></div>
+    <form action="api/Message/all">
+    <button onclick="traerInformacionAdmins()"> Consultar </button>
+    </form>
+    <div>
+        <input type="number" id="idadmin" placeholder="id">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="email" placeholder="Email">
+    </div>
+<br/>
+<form action="api/Message/save">
+    <button onclick="guardarInformacionMensajes()">Guardar</button>
+</form>
+<form action="*/api/Message/update">
+    <button onclick="editarInformacionMensajes()">Actualizar</button>
+    </form>
+<footer class="bg-dark text-white">
+            
+            <p><h8>Contactenos: <br/>Juan Pablo Londoño González:   <a href="mailto:juan.londono.mt@usa.edu.co">juan.londono.mt@usa.edu.co</a><br/>
+            Hernan Giraldo Cajiao:  <a href="mailto:hernan.giraldo.mt@usa.edu.co">hernan.giraldo.mt@usa.edu.co</a><br/>
+            John Humberto Alba:     <a href="mailto:john.alba.mt@usa.edu.co">john.alba.mt@usa.edu.co</a></h8><br/>
+        </footer>
+</body>
+
+</html>
+
